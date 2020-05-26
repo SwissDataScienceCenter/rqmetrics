@@ -1,0 +1,52 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "4a423b24dfc36e58a14d4f4e711332db8a0adb52ab250c3a4767d39a8e5b4729"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.8"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "click": {
+            "hashes": [
+                "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a",
+                "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"
+            ],
+            "version": "==7.1.2"
+        },
+        "prometheus-client": {
+            "hashes": [
+                "sha256:983c7ac4b47478720db338f1491ef67a100b474e3bc7dafcbaefb7d0b8f9b01c",
+                "sha256:c6e6b706833a6bd1fd51711299edee907857be10ece535126a158f911ee80915"
+            ],
+            "index": "pypi",
+            "version": "==0.8.0"
+        },
+        "redis": {
+            "hashes": [
+                "sha256:2ef11f489003f151777c064c5dbc6653dfb9f3eade159bcadc524619fddc2242",
+                "sha256:6d65e84bc58091140081ee9d9c187aab0480097750fac44239307a3bdf0b1251"
+            ],
+            "index": "pypi",
+            "version": "==3.5.2"
+        },
+        "rq": {
+            "hashes": [
+                "sha256:318017229145a40d34c20bc21ecdcd8c217a326eb08c9bee249e8c9e09846e36",
+                "sha256:e6d82156eb43a8fffe451099a716114f5f163ec7603b6e8c8dab16a1b31f4547"
+            ],
+            "index": "pypi",
+            "version": "==1.4.1"
+        }
+    },
+    "develop": {}
+}
