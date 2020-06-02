@@ -10,4 +10,4 @@ RUN mkdir /app \
 WORKDIR /app
 RUN pipenv install 
 
-ENTRYPOINT ["python", "-m", "rqexport"]
+ENTRYPOINT ["python", "."]

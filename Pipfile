@@ -4,6 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
+fakeredis = "*"
+requests = "*"
+black = "==19.10b0"
 
 [packages]
 rq = "*"
