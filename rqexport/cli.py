@@ -1,4 +1,5 @@
-"""Entry point for RQ's exporter."""
+"""CLI interface for RQ exporter."""
+
 import signal
 import sys
 import time
@@ -13,6 +14,7 @@ from rqexport.logger import logger
 
 
 def sig_handle(sig, frame):
+    """Handle OS signals."""
     logger.info("Stopping the server")
     sys.exit(0)
 
@@ -34,13 +36,10 @@ def bootstrap_metrics_server():
     signal.signal(signal.SIGINT, sig_handle)
     signal.signal(signal.SIGTERM, sig_handle)
 
+
 def main():
     """Entry point for RQ exporter."""
     bootstrap_metrics_server()
 
     while True:
         time.sleep(1)
-
-
-if __name__ == "__main__":
-    main()

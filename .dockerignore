@@ -1,0 +1,10 @@
+*
+!setup.py
+!__main__.py
+!rqexport
+!README.md
+
+**/*.pyc
+**/__pycache__
+.idea/
+.pytest_cache/

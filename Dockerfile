@@ -1,13 +1,14 @@
 FROM python:3.8-slim-buster
 
 RUN groupadd -r metrics && useradd -r -g metrics metrics
-USER metrics
-COPY . /app
 
 RUN mkdir /app \
     && chown -R metrics:metrics /app
 
-WORKDIR /app
-RUN pipenv install 
+COPY . /app
 
-ENTRYPOINT ["python", "."]
+WORKDIR /app
+RUN pip install .[all]
+USER metrics
+
+ENTRYPOINT ["rqmetrics"]
