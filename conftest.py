@@ -4,7 +4,7 @@ import time
 import pytest
 from rq import Worker
 
-from core.exporter import RQPrometheusExporter
+from rqexport.exporter import RQPrometheusExporter
 
 TEST_CACHE_CONNECTION = None
 

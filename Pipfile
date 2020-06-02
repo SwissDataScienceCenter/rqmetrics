@@ -13,6 +13,3 @@ black = "==19.10b0"
 rq = "*"
 redis = "*"
 prometheus-client = "*"
-
-[requires]
-python_version = "3.8"

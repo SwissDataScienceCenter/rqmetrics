@@ -7,9 +7,9 @@ from prometheus_client import start_wsgi_server
 from prometheus_client.core import REGISTRY
 from redis import Redis, RedisError
 
-from core.config import REDIS_HOST, REDIS_PORT, REDIS_DB, REDIS_PASS, PORT, HOST
-from core.exporter import RQPrometheusExporter
-from core.logger import logger
+from rqexport.config import REDIS_HOST, REDIS_PORT, REDIS_DB, REDIS_PASS, PORT, HOST
+from rqexport.exporter import RQPrometheusExporter
+from rqexport.logger import logger
 
 
 def sig_handle(sig, frame):
@@ -34,9 +34,13 @@ def bootstrap_metrics_server():
     signal.signal(signal.SIGINT, sig_handle)
     signal.signal(signal.SIGTERM, sig_handle)
 
-
-if __name__ == "__main__":
+def main():
+    """Entry point for RQ exporter."""
     bootstrap_metrics_server()
 
     while True:
         time.sleep(1)
+
+
+if __name__ == "__main__":
+    main()
