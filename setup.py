@@ -5,7 +5,7 @@ long_description = Path("README.md").read_text()
 
 requirements = [
     "rq>=1.2.2",
-    "redis>=3.3.11",
+    "redis>=3.5.3",
     "prometheus_client>=0.8.0",
 ]
 
