@@ -68,5 +68,5 @@ setup(
         'Monitoring'
     ],
     python_requires=">=3.6",
-    entry_points={"console_scripts": ["rqexport = __main__:main"]},
+    entry_points={"console_scripts": ["rqmetrics=rqexport.cli:main"]},
 )
