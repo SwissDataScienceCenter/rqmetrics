@@ -4,8 +4,8 @@ import time
 import pytest
 from rq import Worker
 
-from rqexport.exporter import RQPrometheusExporter
-from rqexport.config import REDIS_DB, REDIS_HOST, REDIS_PASS, REDIS_PORT
+from rqmetrics.exporter import RQPrometheusExporter
+from rqmetrics.config import REDIS_DB, REDIS_HOST, REDIS_PASS, REDIS_PORT
 
 from redis import Redis
 

@@ -11,7 +11,6 @@ requirements = [
 ]
 
 tests_require = [
-    "fakeredis==1.4.1",
     "pytest==5.4.2",
     "requests>=2.23.0",
     "black==19.10b0",
@@ -20,9 +19,6 @@ tests_require = [
 
 extras_require = {
     "docs": ["Jinja2>=2.10.1", "Sphinx>=1.6.3", "renku-sphinx-theme>=0.1.0",],
-    "runner": ["cwlref-runner>=1.0",],
-    "notebook": [],
-    "sentry": ["sentry-sdk>=0.7.4",],
     "tests": tests_require,
 }
 
@@ -35,7 +31,7 @@ extras_require["all"] = list(setup_requires)
 
 setup(
     name="rq-prometheus-exporter",
-    url="https://github.com/SwissDataScienceCenter/rq-prometheus-exporter",
+    url="https://github.com/SwissDataScienceCenter/rqmetrics",
     license="",
     version="",
     author="",

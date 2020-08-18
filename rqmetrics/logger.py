@@ -2,7 +2,7 @@
 import logging
 import sys
 
-from rqexport.config import LOG_FORMAT, LOG_LEVEL
+from rqmetrics.config import LOG_FORMAT, LOG_LEVEL
 
 logger = logging.getLogger("rqexporter")
 logger.setLevel(LOG_LEVEL)

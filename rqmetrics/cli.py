@@ -8,9 +8,9 @@ from prometheus_client import start_wsgi_server
 from prometheus_client.core import REGISTRY
 from redis import Redis, RedisError
 
-from rqexport.config import HOST, PORT, REDIS_DB, REDIS_HOST, REDIS_PASS, REDIS_PORT
-from rqexport.exporter import RQPrometheusExporter
-from rqexport.logger import logger
+from rqmetrics.config import HOST, PORT, REDIS_DB, REDIS_HOST, REDIS_PASS, REDIS_PORT
+from rqmetrics.exporter import RQPrometheusExporter
+from rqmetrics.logger import logger
 
 
 def sig_handle(sig, frame):
