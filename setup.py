@@ -43,7 +43,7 @@ setup(
     tests_require=tests_require,
     extras_require=extras_require,
     setup_requires=requirements + setup_requires,
-    packages=["rqexport"],
+    packages=["rqmetrics"],
     classifiers=[
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
@@ -61,5 +61,5 @@ setup(
         "Monitoring",
     ],
     python_requires=">=3.6",
-    entry_points={"console_scripts": ["rqmetrics=rqexport.cli:main"]},
+    entry_points={"console_scripts": ["rqmetrics=rqmetrics.cli:main"]},
 )

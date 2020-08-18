@@ -1,6 +1,6 @@
 # RQ Metrics
 
-[![Actions Status](https://github.com/SwissDataScienceCenter/rq-prometheus-exporter/workflows/rqexport-tests/badge.svg)](https://github.com/SwissDataScienceCenter/rq-prometheus-exporter/actions)
+[![Actions Status](https://github.com/SwissDataScienceCenter/rqmetrics/workflows/rqmetrics-tests/badge.svg)](https://github.com/SwissDataScienceCenter/rqmetrics/actions)
 
 
 ## Getting started
