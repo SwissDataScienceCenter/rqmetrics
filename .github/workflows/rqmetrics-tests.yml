@@ -12,6 +12,11 @@ on:
 
 jobs:
   build:
+    services:
+      redis:
+        image: redis:5.0.7-alpine
+        ports:
+          - "6379:6379"
 
     runs-on: ubuntu-latest
     strategy:
@@ -30,5 +35,9 @@ jobs:
         pip install setuptools wheel
         pip install .[tests]
     - name: Test with pytest
+      env:
+          REDIS_HOST: 127.0.0.1
+          REDIS_PORT: 6379
+          REDIS_DATABASE: 0
       run: |
         pytest . -vvv
