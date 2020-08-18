@@ -48,4 +48,7 @@ def test_worker_stats(with_worker, rq_metrics_url):
     assert metrics_response is not None
     assert 200 == metrics_response.status_code
 
-    assert 'rq_workers{name="test_worker",queues="default",state="started"} 1.0' in metrics_response.text
+    assert (
+        'rq_workers{name="test_worker",queues="default",state="started"} 1.0'
+        in metrics_response.text
+    )

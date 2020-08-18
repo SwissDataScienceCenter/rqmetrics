@@ -60,6 +60,7 @@ def rq_job_queue(rq_exporter_server):
 def with_worker(rq_exporter_server):
     """Start worker."""
     from threading import Event, Thread
+
     ready = Event()
 
     def make_worker():

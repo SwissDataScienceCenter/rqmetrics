@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    timeout-minutes: 20
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: Login to DockerHub Registry
+      run: echo ${{ secrets.DOCKER_REGISTRY_PASSWORD }} | docker login -u ${{ secrets.DOCKER_REGISTRY_USERNAME }} --password-stdin
+    - name: Get the version
+      id: vars
+      run: echo ::set-output name=tag::$(echo ${GITHUB_SHA::8})
+    - name: Build the tagged Docker image
+      run: docker build . --file Dockerfile --tag justsam/rqmetrics:master-${{steps.vars.outputs.tag}}
+    - name: Push the tagged Docker image
+      run: docker push justsam/rqmetrics:master-${{steps.vars.outputs.tag}}
+    - name: Build the latest Docker image
+      run: docker build . --file Dockerfile --tag justsam/metrics:latest
+    - name: Push the latest Docker image
+      run: docker push justsam/rqmetrics:latest

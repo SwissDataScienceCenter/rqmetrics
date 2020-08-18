@@ -8,6 +8,7 @@ pytest = "*"
 fakeredis = "*"
 requests = "*"
 black = "==19.10b0"
+isort = "*"
 
 [packages]
 rq = "*"

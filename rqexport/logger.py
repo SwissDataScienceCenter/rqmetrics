@@ -2,9 +2,9 @@
 import logging
 import sys
 
-from rqexport.config import LOG_LEVEL, LOG_FORMAT
+from rqexport.config import LOG_FORMAT, LOG_LEVEL
 
-logger = logging.getLogger('rqexporter')
+logger = logging.getLogger("rqexporter")
 logger.setLevel(LOG_LEVEL)
 
 handler = logging.StreamHandler(sys.stdout)

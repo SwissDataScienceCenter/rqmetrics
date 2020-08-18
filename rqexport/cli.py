@@ -8,7 +8,7 @@ from prometheus_client import start_wsgi_server
 from prometheus_client.core import REGISTRY
 from redis import Redis, RedisError
 
-from rqexport.config import REDIS_HOST, REDIS_PORT, REDIS_DB, REDIS_PASS, PORT, HOST
+from rqexport.config import HOST, PORT, REDIS_DB, REDIS_HOST, REDIS_PASS, REDIS_PORT
 from rqexport.exporter import RQPrometheusExporter
 from rqexport.logger import logger
 
@@ -23,7 +23,9 @@ def bootstrap_metrics_server():
     """Configure and bootstrap metrics server."""
     try:
         logger.info("Creating cache connection")
-        cache = Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, password=REDIS_PASS)
+        cache = Redis(
+            host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, password=REDIS_PASS
+        )
         logger.info("Registering RQ Prometheus exporter")
         REGISTRY.register(RQPrometheusExporter(cache))
     except (RedisError, IOError) as exp:
