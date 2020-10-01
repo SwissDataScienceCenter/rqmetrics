@@ -16,10 +16,10 @@ jobs:
       id: vars
       run: echo ::set-output name=tag::$(echo ${GITHUB_SHA::8})
     - name: Build the tagged Docker image
-      run: docker build . --file Dockerfile --tag justsam/rqmetrics:master-${{steps.vars.outputs.tag}}
+      run: docker build . --file Dockerfile --tag renku/rqmetrics:master-${{steps.vars.outputs.tag}}
     - name: Push the tagged Docker image
-      run: docker push justsam/rqmetrics:master-${{steps.vars.outputs.tag}}
+      run: docker push renku/rqmetrics:master-${{steps.vars.outputs.tag}}
     - name: Build the latest Docker image
-      run: docker build . --file Dockerfile --tag justsam/metrics:latest
+      run: docker build . --file Dockerfile --tag renku/rqmetrics:latest
     - name: Push the latest Docker image
-      run: docker push justsam/rqmetrics:latest
+      run: docker push renku/rqmetrics:latest
