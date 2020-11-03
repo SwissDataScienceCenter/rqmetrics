@@ -1,9 +1,7 @@
 """Export RQ metrics."""
-from rq import Connection
 from prometheus_client import Summary
 from prometheus_client.core import GaugeMetricFamily
-
-from rq import Queue, Worker
+from rq import Connection, Queue, Worker
 from rq.job import JobStatus
 
 

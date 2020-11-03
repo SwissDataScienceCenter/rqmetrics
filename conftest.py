@@ -4,19 +4,17 @@ import time
 import pytest
 from rq import Worker
 
-from rqexport.exporter import RQPrometheusExporter
+from rqmetrics.exporter import RQPrometheusExporter
+from rqmetrics.config import REDIS_DB, REDIS_HOST, REDIS_PASS, REDIS_PORT
 
-TEST_CACHE_CONNECTION = None
-
+from redis import Redis
 
 def get_test_cache():
     """Return cache connection for testing."""
-    from fakeredis import FakeRedis
-
-    global TEST_CACHE_CONNECTION
-    if TEST_CACHE_CONNECTION is None:
-        TEST_CACHE_CONNECTION = FakeRedis()
-    return TEST_CACHE_CONNECTION
+    cache = Redis(
+        host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, password=REDIS_PASS
+    )
+    return cache
 
 
 @pytest.fixture(scope="module")
@@ -60,6 +58,7 @@ def rq_job_queue(rq_exporter_server):
 def with_worker(rq_exporter_server):
     """Start worker."""
     from threading import Event, Thread
+
     ready = Event()
 
     def make_worker():
@@ -69,6 +68,6 @@ def with_worker(rq_exporter_server):
         worker.work()
 
     Thread(target=make_worker).start()
-    time.sleep(1)
+    time.sleep(2)
 
     yield
