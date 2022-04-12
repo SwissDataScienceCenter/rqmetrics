@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rqmetrics"
-version = "0.0.1"
+version = "0.0.2"
 description = "Prometheus metrics exporter for Redis Queue."
 authors = ["Swiss Data Science Center"]
 
