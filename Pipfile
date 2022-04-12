@@ -9,6 +9,10 @@ fakeredis = "*"
 requests = "*"
 black = "*"
 isort = "*"
+pytest-black = "*"
+flake8 = "*"
+pytest-flake8 = "*"
+pylint = "*"
 
 [packages]
 rq = "*"

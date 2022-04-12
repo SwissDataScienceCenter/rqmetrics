@@ -32,12 +32,16 @@ def test_job_stats(rq_job_queue, rq_metrics_url):
 
     assert metrics_response is not None
     assert 200 == metrics_response.status_code
-    
+
     queued_metric = 'rq_jobs{queue="default",status="queued"}'
     assert queued_metric in metrics_response.text
-    
+
     index = metrics_response.text.find(queued_metric)
-    count = float(metrics_response.text[index + len(queued_metric) + 1:index + len(queued_metric) + 4])
+    count = float(
+        metrics_response.text[
+            index + len(queued_metric) + 1 : index + len(queued_metric) + 4
+        ]
+    )
     assert count > 0.0
 
     assert 'rq_jobs{queue="default",status="started"} 0.0' in metrics_response.text

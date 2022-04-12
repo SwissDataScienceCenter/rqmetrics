@@ -22,11 +22,14 @@ REDIS_HOST = os.environ.get("RQ_REDIS_HOST", DEFAULT_REDIS_HOST)
 REDIS_PORT = os.environ.get("RQ_REDIS_PORT", DEFAULT_REDIS_PORT)
 REDIS_DB = os.environ.get("RQ_REDIS_DB", DEFAULT_REDIS_DB)
 REDIS_PASS = os.environ.get("RQ_REDIS_PASS", DEFAULT_REDIS_PASS)
-REDIS_IS_SENTINEL = os.environ.get("RQ_REDIS_IS_SENTINEL", DEFAULT_REDIS_IS_SENTINEL) == "true"
+REDIS_IS_SENTINEL = (
+    os.environ.get("RQ_REDIS_IS_SENTINEL", DEFAULT_REDIS_IS_SENTINEL) == "true"
+)
 REDIS_MASTER_SET = os.environ.get("RQ_REDIS_MASTER_SET", DEFAULT_REDIS_MASTER_SET)
 
 if REDIS_IS_SENTINEL:
     from redis.sentinel import Sentinel
+
     sentinel = Sentinel(
         [(REDIS_HOST, REDIS_PORT)],
         sentinel_kwargs={"password": REDIS_PASS},

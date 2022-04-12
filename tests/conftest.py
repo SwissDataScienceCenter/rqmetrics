@@ -9,11 +9,10 @@ from rqmetrics.config import REDIS_DB, REDIS_HOST, REDIS_PASS, REDIS_PORT
 
 from redis import Redis
 
+
 def get_test_cache():
     """Return cache connection for testing."""
-    cache = Redis(
-        host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, password=REDIS_PASS
-    )
+    cache = Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, password=REDIS_PASS)
     return cache
 
 

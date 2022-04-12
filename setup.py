@@ -13,12 +13,16 @@ requirements = [
 tests_require = [
     "pytest==5.4.2",
     "requests>=2.23.0",
-    "black==19.10b0",
+    "black>=19.10b0",
 ]
 
 
 extras_require = {
-    "docs": ["Jinja2>=2.10.1", "Sphinx>=1.6.3", "renku-sphinx-theme>=0.1.0",],
+    "docs": [
+        "Jinja2>=2.10.1",
+        "Sphinx>=1.6.3",
+        "renku-sphinx-theme>=0.1.0",
+    ],
     "tests": tests_require,
 }
 
