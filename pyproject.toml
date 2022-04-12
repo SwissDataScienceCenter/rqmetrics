@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "rqmetrics"
+version = "0.0.1"
+description = "Prometheus metrics exporter for Redis Queue."
+authors = ["Swiss Data Science Center"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+rq = "^1.10.1"
+redis = "^4.2.2"
+prometheus-client = "^0.14.1"
+
+[tool.poetry.scripts]
+rqmetrics = 'rqmetrics.cli:main'
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+black = "^22.3.0"
+flake8 = "^4.0.1"
+requests = "^2.27.1"
+isort = "^5.10.1"
+pylint = "^2.13.5"
+pytest-flake8 = "^1.1.1"
+pytest-black = "^0.3.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

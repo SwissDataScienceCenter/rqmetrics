@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -32,12 +32,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install setuptools wheel
-        pip install .[tests]
+        pip install poetry
+        poetry install
     - name: Test with pytest
       env:
           REDIS_HOST: 127.0.0.1
           REDIS_PORT: 6379
           REDIS_DATABASE: 0
       run: |
-        pytest . -vvv
+        poetry run pytest . -vvv

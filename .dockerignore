@@ -1,6 +1,5 @@
 *
-!setup.py
-!__main__.py
+!pyproject.toml
 !rqmetrics
 !README.md
 
