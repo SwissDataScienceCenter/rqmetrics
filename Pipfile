@@ -7,7 +7,7 @@ verify_ssl = true
 pytest = "*"
 fakeredis = "*"
 requests = "*"
-black = "==19.10b0"
+black = "*"
 isort = "*"
 
 [packages]
