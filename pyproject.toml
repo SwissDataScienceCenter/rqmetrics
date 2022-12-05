@@ -7,7 +7,7 @@ authors = ["Swiss Data Science Center"]
 [tool.poetry.dependencies]
 python = "^3.7"
 rq = "^1.10.1"
-redis = "^4.2.2"
+redis = "^4.4.0"
 prometheus-client = "^0.14.1"
 
 [tool.poetry.scripts]
