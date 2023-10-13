@@ -27,15 +27,6 @@ REDIS_IS_SENTINEL = (
 )
 REDIS_MASTER_SET = os.environ.get("RQ_REDIS_MASTER_SET", DEFAULT_REDIS_MASTER_SET)
 
-if REDIS_IS_SENTINEL:
-    from redis.sentinel import Sentinel
-
-    sentinel = Sentinel(
-        [(REDIS_HOST, REDIS_PORT)],
-        sentinel_kwargs={"password": REDIS_PASS},
-    )
-    REDIS_HOST, REDIS_PORT = sentinel.discover_master(REDIS_MASTER_SET)
-
 LOG_LEVEL = os.environ.get("RQ_EXPORTER_LOG_LEVEL", DEFAULT_LOG_LEVEL).upper()
 LOG_FORMAT = os.environ.get("RQ_EXPORTER_LOG_FORMAT", DEFAULT_LOG_FORMAT)
 LOG_DATEFMT = os.environ.get("RQ_EXPORTER_LOG_DATEFMT", DEFAULT_LOG_DATEFMT)
