@@ -1,6 +1,15 @@
 """Configuration file for exporting."""
 
 import os
+import platform
+import socket
+import uuid
+
+container_name = platform.node()
+if not container_name:
+    container_name = socket.gethostname()
+if not container_name:
+    container_name = uuid.uuid4().hex  # NOTE: Fallback if no hostname could be determined
 
 DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = "8765"
@@ -26,6 +35,7 @@ REDIS_IS_SENTINEL = (
     os.environ.get("RQ_REDIS_IS_SENTINEL", DEFAULT_REDIS_IS_SENTINEL) == "true"
 )
 REDIS_MASTER_SET = os.environ.get("RQ_REDIS_MASTER_SET", DEFAULT_REDIS_MASTER_SET)
+REDIS_NAMESPACE = os.getenv("REDIS_NAMESPACE", "") + container_name
 
 LOG_LEVEL = os.environ.get("RQ_EXPORTER_LOG_LEVEL", DEFAULT_LOG_LEVEL).upper()
 LOG_FORMAT = os.environ.get("RQ_EXPORTER_LOG_FORMAT", DEFAULT_LOG_FORMAT)
