@@ -35,10 +35,10 @@ class RQPrometheusExporter:
         )
 
         for q in Queue.all():
-            if not q.name.starts_with(self.namespace):
+            if not q.name.startswith(self.namespace):
                 # Only track metrics for queues associated with the current core-svc
                 continue
-            
+
             rq_jobs_gauge.add_metric([q.name, JobStatus.QUEUED], q.count)
             rq_jobs_gauge.add_metric(
                 [q.name, JobStatus.STARTED], q.started_job_registry.count

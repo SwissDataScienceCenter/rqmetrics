@@ -9,7 +9,9 @@ container_name = platform.node()
 if not container_name:
     container_name = socket.gethostname()
 if not container_name:
-    container_name = uuid.uuid4().hex  # NOTE: Fallback if no hostname could be determined
+    container_name = (
+        uuid.uuid4().hex
+    )  # NOTE: Fallback if no hostname could be determined
 
 DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = "8765"
