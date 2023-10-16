@@ -39,7 +39,7 @@ def rq_exporter_server(rq_exporter_addr):
     from prometheus_client import start_wsgi_server
     from prometheus_client.core import REGISTRY
 
-    REGISTRY.register(RQPrometheusExporter(get_test_cache()))
+    REGISTRY.register(RQPrometheusExporter(get_test_cache(), ""))
     start_wsgi_server(*rq_exporter_addr)
 
     yield
